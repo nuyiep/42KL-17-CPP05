@@ -6,15 +6,15 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:10:01 by plau              #+#    #+#             */
-/*   Updated: 2023/05/16 20:27:05 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/04 18:43:04 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() :_name("John Doe")
 {
-	this->_grade = 0;
+	this->_grade = LOWEST_GRADE;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -32,7 +32,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &src)
 	return (*this);
 }
 
-std::string Bureaucrat::getName() const
+const std::string& Bureaucrat::getName() const
 {
 	return (this->_name);
 }
@@ -44,12 +44,26 @@ int	Bureaucrat::getGrade() const
 
 /* Since grade 1 is the highest and 150 is the lowest */
 /* incrementing a grade 3 will give a grade 2 */
+/* If the condition is true and an exception is thrown, */
+/* the execution will be transferred to the 'catch' block */
+/* and the statement following the 'catch' block */
+/* will not be executed */
 void Bureaucrat::incrementGrade(int num)
 {
 	int	temp = this->_grade;
 	temp = temp - num;
-	if (errorCheckGrade(temp) == 1)
-		this->_grade = this->_grade - num;
+	try
+	{
+		if (temp < HIGHEST_GRADE)
+			throw Bureaucrat::GradeTooHighException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	this->_grade = this->_grade - num;
+	std::cout << GREEN << this->_name << " is promoted to grade "
+				<< this->_grade << "!!" RESET << std::endl;
 }
 
 /* Decrementing a grade 3 will give a grade 4 */
@@ -57,21 +71,33 @@ void Bureaucrat::decrementGrade(int num)
 {
 	int	temp = this->_grade;
 	temp = temp + num;
-	if (errorCheckGrade(temp) == 1)
-		this->_grade = this->_grade + num;
+	try
+	{
+		if (temp > LOWEST_GRADE)
+			throw Bureaucrat::GradeTooLowException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	this->_grade = this->_grade + num;
+	std::cout << RED << this->_name << " is demoted to grade "
+			<< this->_grade << "!!" RESET << std::endl;
 }
 
-int Bureaucrat::errorCheckGrade(int temp)
+/* Provides the definition of what() */
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	if (temp < 1)
-	{
-		std::cout << "Bureaucrat::GradeTooLowException" << std::endl;
-		return (0);
-	}
-	else if (temp > 150)
-	{
-		std::cout << "Bureaucrat::GradeTooHighException" << std::endl;
-		return (0);
-	}
-	return (1);
+	return ("Grade is too high.");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Grade is too high.");
+}
+
+std::ostream &operator<<(std::ostream &os, Bureaucrat const &obj)
+{
+	os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+	return (os);
 }

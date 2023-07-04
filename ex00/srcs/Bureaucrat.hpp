@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:09:40 by plau              #+#    #+#             */
-/*   Updated: 2023/05/16 20:24:22 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/04 18:30:23 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,51 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
-#include <string.h>
+#include <string>
+#include "color.hpp"
+
+# define HIGHEST_GRADE 	1
+# define LOWEST_GRADE 	150
 
 class Bureaucrat
 {
 	public:
 		/* Orthodox canonical form */
-		Bureaucrat();
-		~Bureaucrat();
-		Bureaucrat(const Bureaucrat &src);
-		Bureaucrat& operator=(const Bureaucrat &src);
+		Bureaucrat(); //default constructor
+		~Bureaucrat(); //destructor
+		Bureaucrat(const Bureaucrat &src); //copy constructor
+		Bureaucrat& operator=(const Bureaucrat &src); //assignment operator
 
 		/* Required by PDF */
-		std::string	getName() const;
-		int			getGrade() const;
-		void		incrementGrade(int num);
-		void		decrementGrade(int num);
+		std::string	const & getName() const;
+		int					getGrade() const;
+		void				incrementGrade(int num);
+		void				decrementGrade(int num);
 
-		/* Member functions */
-		int			errorCheckGrade(int temp);
+		/* Exception classes */
+		/* Inherited from std::exception class */
+		/* can be caught by a catch block that catches std""exception objects" */
+		/* Declares a member function what(), overrides the what() */
+		/* function defined in std::exception - using virtual */ 
+		/* throw- indicate that a function will not throw any exceptions */
+		/* and it allows for more efficient exception handling */
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char *what() const throw();	
+		};
+ 		
 		
 	private:
 		const	std::string	_name;
 		int					_grade;
 };
+
+std::ostream &operator<<(std::ostream &os, Bureaucrat const &obj);
 
 #endif
