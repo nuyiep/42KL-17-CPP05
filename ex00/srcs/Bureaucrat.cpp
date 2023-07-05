@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:10:01 by plau              #+#    #+#             */
-/*   Updated: 2023/07/05 17:01:35 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/05 17:21:42 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void Bureaucrat::decrementGrade(int num)
 			throw Bureaucrat::GradeTooLowException();
 		this->_grade = this->_grade - num;
 		std::cout << BOLD_RED << this->_name << " is demoted to grade "
-				<< this->_grade << "!!" RESET << std::endl;
+				<< this->_grade << RESET << std::endl;
 	}
 	catch(const std::exception& e)
 	{
