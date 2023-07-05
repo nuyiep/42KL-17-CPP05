@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:09:40 by plau              #+#    #+#             */
-/*   Updated: 2023/07/04 18:30:23 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/05 15:32:59 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ class Bureaucrat
 			public:
 				virtual const char *what() const throw();	
 		};
- 		
 		
 	private:
 		const	std::string	_name;

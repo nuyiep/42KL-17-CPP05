@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 18:21:39 by plau              #+#    #+#             */
-/*   Updated: 2023/07/04 18:23:24 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/05 14:48:17 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,10 @@
 #define BRIGHT_MAGENTA "\033[95m"
 #define BRIGHT_CYAN "\033[96m"
 #define BRIGHT_WHITE "\033[97m"
+#define BOLD_BLUE "\033[1m\033[34m"
+#define BOLD_CYAN "\033[1m\033[36m"
+#define BOLD_MAGENTA "\033[1m\033[35m"
+#define BOLD_GREEN "\033[1m\033[32m"
+#define BOLD_RED "\033[1m\033[31m"
 
 #endif
