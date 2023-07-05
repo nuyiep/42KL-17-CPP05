@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:09:40 by plau              #+#    #+#             */
-/*   Updated: 2023/07/05 15:32:59 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/05 16:10:21 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@ class Bureaucrat
 		int					getGrade() const;
 		void				incrementGrade(int num);
 		void				decrementGrade(int num);
+
+		/* Member functions */
+		Bureaucrat(std::string name, int grade);
 
 		/* Exception classes */
 		/* Inherited from std::exception class */
