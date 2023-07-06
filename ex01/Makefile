@@ -6,18 +6,19 @@
 #    By: plau <plau@student.42.kl>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/21 15:33:58 by plau              #+#    #+#              #
-#    Updated: 2023/07/05 17:49:05 by plau             ###   ########.fr        #
+#    Updated: 2023/07/06 12:25:18 by plau             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= 	form
+NAME			= 	Form
 CXX				= 	c++
 RM				= 	rm -rf
 MKDIR			= 	mkdir -p
 CXXFLAGS		= 	-Wall -Wextra -Werror -std=c++98 -pedantic
 # CXXFLAGS		+=  -g3 -fsanitize=address
 SRCS_FILES		= 	main \
-					Bureaucrat
+					Bureaucrat \
+					Form
 					
 SRCS			= 	$(addprefix $(SRCS_DIR), $(addsuffix .cpp, $(SRCS_FILES)))
 OBJS			= 	$(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRCS_FILES)))

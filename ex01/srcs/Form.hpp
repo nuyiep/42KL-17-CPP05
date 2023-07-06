@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:16:51 by plau              #+#    #+#             */
-/*   Updated: 2023/07/05 20:59:46 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/06 13:20:12 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ class Form
 		Form& operator=(const Form &src); //assignment operator
 
 		/* Required by PDF */
+		/* Getters - adding const behind- indicates that it */
+		/* will not modify the state of the object  */
+		/* but it allows the modification of the returned value */
+		std::string		   &getName() const;
+		bool			   	getSigned() const;
+		int				    getSignGrade() const;
+		const int					getExecuteGrade();
 		
 
 	private:
@@ -33,5 +40,7 @@ class Form
 		const int 			_signGrade;
 		const int 			_executeGrade;
 };
+
+std::ostream &operator<<(std::ostream &os, Form const &obj);
 
 #endif
