@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:09:40 by plau              #+#    #+#             */
-/*   Updated: 2023/07/05 16:10:21 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/07 16:07:36 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include "color.hpp"
+#include "Form.hpp"
 
 # define HIGHEST_GRADE 	1
 # define LOWEST_GRADE 	150
@@ -34,6 +35,7 @@ class Bureaucrat
 		int					getGrade() const;
 		void				incrementGrade(int num);
 		void				decrementGrade(int num);
+		void				signForm(Form form);
 
 		/* Member functions */
 		Bureaucrat(std::string name, int grade);

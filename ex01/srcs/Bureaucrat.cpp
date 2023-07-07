@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:10:01 by plau              #+#    #+#             */
-/*   Updated: 2023/07/06 14:42:07 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/07 16:05:38 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,12 @@ void Bureaucrat::decrementGrade(int num)
 /* Provides the definition of what() */
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return (BOLD_GREEN "Grade is too high." RESET);
+	return (BOLD_GREEN "[Bureaucrat]Grade too high." RESET);
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return (BOLD_RED "Grade is too low." RESET);
+	return (BOLD_RED "[Bureaucrat] Grade too low." RESET);
 }
 
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &obj)
@@ -111,4 +111,11 @@ Bureaucrat::Bureaucrat(std::string name, int grade) :_name(name)
 		throw Bureaucrat::GradeTooLowException();
 	else if (grade < HIGHEST_GRADE)
 		throw Bureaucrat::GradeTooHighException();
+}
+
+void	Bureaucrat::signForm(Form form)
+{
+	if (form.getSigned() == true)
+		std::cout << BOLD_MAGENTA << this->_name << " signed "
+			<< form.getName() << RESET << std::endl;
 }

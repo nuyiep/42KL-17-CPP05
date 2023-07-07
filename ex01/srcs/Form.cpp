@@ -6,13 +6,13 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:16:48 by plau              #+#    #+#             */
-/*   Updated: 2023/07/06 14:52:54 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/07 15:07:18 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form() :_name("John Doe"), _signGrade(LOWEST_GRADE), _executeGrade(LOWEST_GRADE)
+Form::Form() :_name("Stationery Purchase Order"), _signGrade(LOWEST_GRADE), _executeGrade(LOWEST_GRADE)
 {
 	this->_signed = false;
 }
@@ -21,8 +21,9 @@ Form::~Form()
 {
 }
 
-Form::Form(const Form &src) :_name("PY"), _signGrade(70), _executeGrade(130)
+Form::Form(const Form &src) :_name("Car Purchase Order"), _signGrade(HIGHEST_GRADE), _executeGrade(HIGHEST_GRADE)
 {
+	this->_signed = false;
 	(*this) = src;
 }
 
@@ -74,4 +75,27 @@ const char *Form::GradeTooLowException::what() const throw()
 	return (BOLD_RED "[Form] Grade too low." RESET);
 }
 
+Form::Form(std::string name, int signGrade, int executeGrade) :_name(name), _signGrade(signGrade), _executeGrade(executeGrade)
+{
+	this->_signed = false;
+	try
+	{
+		if (this->_signGrade > LOWEST_GRADE || this->_executeGrade > LOWEST_GRADE)
+			throw Form::GradeTooLowException();
+		else if (this->_signGrade < HIGHEST_GRADE || this->_executeGrade < HIGHEST_GRADE)
+			throw Form::GradeTooHighException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+		exit(EXIT_FAILURE);
+	}
+}
 
+void	Form::beSigned(Bureaucrat bureaucrat)
+{
+	if (bureaucrat.getGrade() > this->_signGrade)
+		throw Form::GradeTooLowException();
+	if (bureaucrat.getGrade() <= this->_signGrade)
+		this->_signed = true;
+}

@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:16:51 by plau              #+#    #+#             */
-/*   Updated: 2023/07/06 14:50:39 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/07 15:01:16 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,8 @@ class Form
 		int					getExecuteGrade() const;
 		
 		/* Member functions */
-		// Form::Form(std::string name, int grade)
-		// {
-			
-		// }
+		Form(std::string name, int signGrade, int executeGrade); //name and grade constructor
+		void				beSigned(Bureaucrat bureaucrat);
 		
 		/* Exception classes */
 		class GradeTooHighException : public std::exception
