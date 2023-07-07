@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:10:01 by plau              #+#    #+#             */
-/*   Updated: 2023/07/07 16:05:38 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/07 17:10:12 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,9 +113,15 @@ Bureaucrat::Bureaucrat(std::string name, int grade) :_name(name)
 		throw Bureaucrat::GradeTooHighException();
 }
 
-void	Bureaucrat::signForm(Form form)
+void	Bureaucrat::signForm(Form &form)
 {
 	if (form.getSigned() == true)
 		std::cout << BOLD_MAGENTA << this->_name << " signed "
 			<< form.getName() << RESET << std::endl;
+	else
+	{
+		std::cout << BOLD_MAGENTA << this->_name << " couldnt sign "
+			<< form.getName() << " because "<< RESET;
+		throw Form::GradeTooLowException();
+	}
 }

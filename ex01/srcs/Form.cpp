@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:16:48 by plau              #+#    #+#             */
-/*   Updated: 2023/07/07 15:07:18 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/07 17:10:17 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,8 @@ std::ostream &operator<<(std::ostream &os, Form const &obj)
 	os << BOLD_CYAN "Name: \t\t\t\t" << obj.getName() << std::endl
 		<< BOLD_GREEN "Has/has not signed: \t\t" << obj.getSigned() << std::endl
 		<< "Grade required to sign: \t" << obj.getSignGrade() << std::endl
-		<< "Grade required to execute: \t" << obj.getExecuteGrade() << std::endl
+		<< "Grade required to execute: \t" << obj.getExecuteGrade() << RESET << std::endl
 		<< std::endl;
-		RESET;
 	return (os);
 }
 
@@ -94,8 +93,6 @@ Form::Form(std::string name, int signGrade, int executeGrade) :_name(name), _sig
 
 void	Form::beSigned(Bureaucrat bureaucrat)
 {
-	if (bureaucrat.getGrade() > this->_signGrade)
-		throw Form::GradeTooLowException();
 	if (bureaucrat.getGrade() <= this->_signGrade)
 		this->_signed = true;
 }
