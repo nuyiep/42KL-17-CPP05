@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 19:55:48 by plau              #+#    #+#             */
-/*   Updated: 2023/07/07 20:00:28 by plau             ###   ########.fr       */
+/*   Created: 2023/07/07 18:17:05 by plau              #+#    #+#             */
+/*   Updated: 2023/07/09 16:18:21 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
+#ifndef PRESIDENTIALPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
-RobotomyRequestForm::RobotomyRequestForm()
-{
-}
+#include "AForm.hpp"
 
-RobotomyRequestForm::~RobotomyRequestForm()
+class PresidentialPardonForm : public AForm
 {
-}
+	public:
+		/* Orthodox canonical form */
+		PresidentialPardonForm();
+		~PresidentialPardonForm();
+		PresidentialPardonForm(const PresidentialPardonForm &src);
+		PresidentialPardonForm &operator=(const PresidentialPardonForm &src);
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src)
-{
-	(*this) = src;
-}
+	private:
+		std::string _target;
+};
 
-RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &src)
-{
-	return (*this);
-}
+#endif

@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 18:17:05 by plau              #+#    #+#             */
-/*   Updated: 2023/07/07 20:12:10 by plau             ###   ########.fr       */
+/*   Created: 2023/07/07 18:17:01 by plau              #+#    #+#             */
+/*   Updated: 2023/07/09 16:18:34 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-# define PRESIDENTIALPARDONFORM_HPP
+#include "PresidentialPardonForm.hpp"
 
-#include "AForm.hpp"
-
-class PresidentialPardonForm
+PresidentialPardonForm::PresidentialPardonForm()
 {
-	public:
-		/* Orthodox canonical form */
-		PresidentialPardonForm();
-		~PresidentialPardonForm();
-		PresidentialPardonForm(const PresidentialPardonForm &src);
-		PresidentialPardonForm &operator=(const PresidentialPardonForm &src);
+}
 
-	private:	
-};
+PresidentialPardonForm::~PresidentialPardonForm()
+{
+}
 
-#endif
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src)
+{
+	(*this) = src;
+}
+
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &src)
+{
+	this->_target = src._target;
+	return (*this);
+}

@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 18:14:44 by plau              #+#    #+#             */
-/*   Updated: 2023/07/07 20:14:15 by plau             ###   ########.fr       */
+/*   Created: 2023/07/07 17:26:58 by plau              #+#    #+#             */
+/*   Updated: 2023/07/09 16:22:30 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#include "ShrubberyCreationForm.hpp"
 
-#include "AForm.hpp"
-
-class ShrubberyCreationForm : public AForm
+int main()
 {
-	public:
-		/* Orthodox canonical form */
-		ShrubberyCreationForm();
-		~ShrubberyCreationForm();
-		ShrubberyCreationForm(const ShrubberyCreationForm &src);
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);		
+	ShrubberyCreationForm ShrubA;
+	ShrubberyCreationForm ShrubB(ShrubA);
 
-	private:
-		
-};
-
-#endif
+	std::cout << ShrubA << std::endl;
+	std::cout << ShrubB << std::endl;
+}

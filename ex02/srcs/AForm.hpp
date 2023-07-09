@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:16:51 by plau              #+#    #+#             */
-/*   Updated: 2023/07/07 20:42:01 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/09 15:42:47 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
+
 class AForm
 {
 	public:
 		/* Orthodox canonical form */
 		AForm(); //default constructor
-		~AForm(); //destructor
+		virtual		~AForm(); //destructor
 		AForm(const AForm &src); //copy constructor
 		AForm& operator=(const AForm &src); //assignment operator
 
-		/* Required by PDF */
 		/* Getters - adding const behind- indicates that it */
 		/* will not modify the state of the object  */
 		/* but it allows the modification of the returned value */
@@ -57,6 +57,6 @@ class AForm
 		const int 			_executeGrade;
 };
 
-std::ostream &operator<<(std::ostream &os, Form const &obj);
+std::ostream &operator<<(std::ostream &os, AForm const &obj);
 
 #endif

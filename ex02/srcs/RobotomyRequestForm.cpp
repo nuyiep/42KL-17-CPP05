@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 19:55:42 by plau              #+#    #+#             */
-/*   Updated: 2023/07/07 20:12:07 by plau             ###   ########.fr       */
+/*   Created: 2023/07/07 19:55:48 by plau              #+#    #+#             */
+/*   Updated: 2023/07/09 16:17:26 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
+#include "RobotomyRequestForm.hpp"
 
-#include "AForm.hpp"
-
-class RobotomyRequestForm
+RobotomyRequestForm::RobotomyRequestForm() :AForm("RobotomyRequestForm", 72, 45)
 {
-	public:
-		/* Orthodox canonical form */
-		RobotomyRequestForm();
-		~RobotomyRequestForm();
-		RobotomyRequestForm(const RobotomyRequestForm &src);
-		RobotomyRequestForm &operator=(const RobotomyRequestForm &src);
-	private:
-};
+}
 
-#endif
+RobotomyRequestForm::~RobotomyRequestForm()
+{
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src)
+{
+	(*this) = src;
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &src)
+{
+	this->_target = src._target;
+	return (*this);
+}

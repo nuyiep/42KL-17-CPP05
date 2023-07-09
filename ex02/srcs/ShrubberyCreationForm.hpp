@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 18:14:51 by plau              #+#    #+#             */
-/*   Updated: 2023/07/07 20:06:46 by plau             ###   ########.fr       */
+/*   Created: 2023/07/07 18:14:44 by plau              #+#    #+#             */
+/*   Updated: 2023/07/09 15:10:50 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
-ShrubberyCreationForm::ShrubberyCreationForm()
-{
-}
+#include "AForm.hpp"
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+class ShrubberyCreationForm : public AForm
 {
-}
+	public:
+		/* Orthodox canonical form */
+		ShrubberyCreationForm();
+		~ShrubberyCreationForm();
+		ShrubberyCreationForm(const ShrubberyCreationForm &src);
+		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);		
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src)
-{
-	(*this) = src;
-}
+	private:
+		std::string	_target;
+		
+};
 
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
-{
-	return (*this);
-}
+#endif

@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 18:17:01 by plau              #+#    #+#             */
-/*   Updated: 2023/07/07 19:55:24 by plau             ###   ########.fr       */
+/*   Created: 2023/07/07 18:14:51 by plau              #+#    #+#             */
+/*   Updated: 2023/07/09 16:23:57 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm()
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137)
+{
+	this->_target = "Default";
+}
+
+ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-PresidentialPardonForm::~PresidentialPardonForm()
-{
-}
-
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : AForm(src)
 {
 	(*this) = src;
 }
 
-PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &src)
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
 {
+	this->_target = src._target;
 	return (*this);
 }

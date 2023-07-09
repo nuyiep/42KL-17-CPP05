@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:09:40 by plau              #+#    #+#             */
-/*   Updated: 2023/07/07 20:47:16 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/09 15:23:17 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define HIGHEST_GRADE 	1
 # define LOWEST_GRADE 	150
 
-class Form;
+class AForm;
 class Bureaucrat
 {
 	public:
