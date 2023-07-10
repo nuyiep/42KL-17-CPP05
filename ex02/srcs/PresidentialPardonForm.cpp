@@ -6,13 +6,13 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:17:01 by plau              #+#    #+#             */
-/*   Updated: 2023/07/09 16:18:34 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/10 13:51:16 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm()
+PresidentialPardonForm::PresidentialPardonForm() :AForm("PresidentialPardonForm", 25, 5)
 {
 }
 
