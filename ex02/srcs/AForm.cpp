@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:16:48 by plau              #+#    #+#             */
-/*   Updated: 2023/07/07 20:43:46 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/10 18:43:37 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,13 @@ void	AForm::beSigned(Bureaucrat bureaucrat)
 {
 	if (bureaucrat.getGrade() <= this->_signGrade)
 		this->_signed = true;
+}
+
+void	AForm::execute(Bureaucrat const &executor) const
+{
+	if (executor.getGrade() > this->_executeGrade)
+		throw AForm::GradeTooLowException();
+	if (this->_signed == false)
+		throw AForm::FormNotSignedException();
+	performAction();
 }

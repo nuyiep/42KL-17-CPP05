@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 18:16:51 by plau              #+#    #+#             */
-/*   Updated: 2023/07/09 15:42:47 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/10 20:35:35 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ class AForm
 		/* Member functions */
 		AForm(std::string name, int signGrade, int executeGrade); //name and grade constructor
 		void				beSigned(Bureaucrat bureaucrat);
+		void				execute(Bureaucrat const &executor) const;
+		virtual void		performAction()= 0;
 		
 		/* Exception classes */
 		class GradeTooHighException : public std::exception
@@ -48,6 +50,15 @@ class AForm
 		{
 			public:
 				virtual const char *what() const throw();
+		};
+		
+		class FormNotSignedException : public std::exception
+		{
+			public:
+				const char *what() const throw()
+				{
+					return (BOLD_RED "[AForm] Form not signed" RESET);
+				}
 		};
 		
 	private:

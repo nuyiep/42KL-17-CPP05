@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:14:51 by plau              #+#    #+#             */
-/*   Updated: 2023/07/10 16:27:13 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/10 20:36:23 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) :AForm(ta
 	this->_target = target;
 }
 
-void	ShrubberyCreationForm::drawTree() const
+void	ShrubberyCreationForm::performAction()
 {
 	std::ofstream	outFile(this->_target + "_shrubbery");
 	 

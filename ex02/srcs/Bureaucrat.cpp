@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:10:01 by plau              #+#    #+#             */
-/*   Updated: 2023/07/07 20:48:00 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/10 20:58:23 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,13 +115,28 @@ Bureaucrat::Bureaucrat(std::string name, int grade) :_name(name)
 
 void	Bureaucrat::signForm(AForm &Aform)
 {
-	if (Aform.getSigned() == true)
-		std::cout << BOLD_MAGENTA << this->_name << " signed "
-			<< Aform.getName() << RESET << std::endl;
-	else
+	try
 	{
-		std::cout << BOLD_MAGENTA << this->_name << " couldnt sign "
-			<< Aform.getName() << " because "<< RESET;
-		throw AForm::GradeTooLowException();
+		if (Aform.getSigned() == true)
+			std::cout << BOLD_MAGENTA << this->_name << " signed "
+				<< Aform.getName() << RESET << std::endl;
+		else
+		{
+			std::cout << BOLD_MAGENTA << this->_name << " couldn't sign "
+				<< Aform.getName() << " because "<< RESET;
+			throw AForm::GradeTooHighException();
+		}
 	}
+	catch(const AForm::GradeTooHighException& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const &form)
+{
+	if (this->_grade < form.getExecuteGrade())
+		std::cout << BOLD_MAGENTA << this->_name << " executed " << form.getName() << RESET << std::endl;
+	else
+		std::cout << BOLD_RED << this->_name << " failed to execute " << form.getName() << RESET << std::endl;
 }

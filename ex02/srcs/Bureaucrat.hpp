@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:09:40 by plau              #+#    #+#             */
-/*   Updated: 2023/07/09 15:23:17 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/10 20:38:40 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Bureaucrat
 		void				incrementGrade(int num);
 		void				decrementGrade(int num);
 		void				signForm(AForm &form);
+		void				executeForm(AForm const &form);
 
 		/* Member functions */
 		Bureaucrat(std::string name, int grade);
