@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:14:44 by plau              #+#    #+#             */
-/*   Updated: 2023/07/10 20:36:12 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/10 23:22:31 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,9 @@ class ShrubberyCreationForm : public AForm
 		
 		/* Required by PDF */
 		ShrubberyCreationForm(const std::string target);
-		void	performAction();
+		void	performAction() const;
 	private:
 		std::string	_target;
-		
 };
 
 #endif

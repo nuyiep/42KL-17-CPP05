@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:10:01 by plau              #+#    #+#             */
-/*   Updated: 2023/07/10 20:58:23 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/10 23:42:50 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,12 +122,12 @@ void	Bureaucrat::signForm(AForm &Aform)
 				<< Aform.getName() << RESET << std::endl;
 		else
 		{
-			std::cout << BOLD_MAGENTA << this->_name << " couldn't sign "
+			std::cout << BOLD_RED << this->_name << " couldn't sign "
 				<< Aform.getName() << " because "<< RESET;
-			throw AForm::GradeTooHighException();
+			throw AForm::GradeTooLowException();
 		}
 	}
-	catch(const AForm::GradeTooHighException& e)
+	catch(const AForm::GradeTooLowException& e)
 	{
 		std::cerr << e.what() << '\n';
 	}

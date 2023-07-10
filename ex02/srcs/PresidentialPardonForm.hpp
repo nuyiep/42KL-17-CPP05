@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:17:05 by plau              #+#    #+#             */
-/*   Updated: 2023/07/10 17:34:24 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/10 23:23:58 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class PresidentialPardonForm : public AForm
 
 		/* Required by the PDF */
 		PresidentialPardonForm(const std::string target);
-		void	performAction();
+		void	performAction() const;
 	private:
 		std::string _target;
 };
