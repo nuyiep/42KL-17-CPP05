@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 19:55:42 by plau              #+#    #+#             */
-/*   Updated: 2023/07/09 16:17:14 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/10 17:18:45 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ class RobotomyRequestForm : public AForm
 		~RobotomyRequestForm();
 		RobotomyRequestForm(const RobotomyRequestForm &src);
 		RobotomyRequestForm &operator=(const RobotomyRequestForm &src);
+
+		/* Required by PDF */
+		RobotomyRequestForm(const std::string target);
+		void	performAction();
 	private:
 		std::string _target;
 		

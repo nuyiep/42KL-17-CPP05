@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:14:44 by plau              #+#    #+#             */
-/*   Updated: 2023/07/10 15:58:42 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/10 16:16:45 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm(const ShrubberyCreationForm &src);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);		
 		
-		/* Member function */
+		/* Required by PDF */
 		ShrubberyCreationForm(const std::string target);
 		void	drawTree() const;
 	private:
