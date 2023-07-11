@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 17:26:58 by plau              #+#    #+#             */
-/*   Updated: 2023/07/11 00:09:23 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/11 12:41:12 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,13 @@
 
 int main()
 {
-	Bureaucrat BureauA("Nadjib", 150);
-	Bureaucrat BureauB("Angela Merkel", 0);
-	Bureaucrat BureauC("Winston Churchill", 140);
-
+	int	gradeOne = 151;
+	int	gradeTwo = 1;
+	int gradeThree = 75;
+	Bureaucrat BureauA("Nadjib", gradeOne);
+	Bureaucrat BureauB("Angela Merkel", gradeTwo);
+	Bureaucrat BureauC("Winston Churchill", gradeThree);
+	
 	std::cout << "\n---------- Shrubbery Test ----------\n" << std::endl;
 	ShrubberyCreationForm ShrubA;
 	ShrubberyCreationForm ShrubB("Deadpool");

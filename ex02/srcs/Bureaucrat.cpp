@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:10:01 by plau              #+#    #+#             */
-/*   Updated: 2023/07/10 23:42:50 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/11 12:39:38 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,10 +107,18 @@ std::ostream &operator<<(std::ostream &os, Bureaucrat const &obj)
 Bureaucrat::Bureaucrat(std::string name, int grade) :_name(name)
 {
 	this->_grade = grade;
-	if (grade > LOWEST_GRADE)
-		throw Bureaucrat::GradeTooLowException();
-	else if (grade < HIGHEST_GRADE)
-		throw Bureaucrat::GradeTooHighException();
+	try
+	{
+		if (grade > LOWEST_GRADE)
+			throw Bureaucrat::GradeTooLowException();
+		else if (grade < HIGHEST_GRADE)
+			throw Bureaucrat::GradeTooHighException();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+		exit(2);
+	}
 }
 
 void	Bureaucrat::signForm(AForm &Aform)
