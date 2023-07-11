@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 13:01:11 by plau              #+#    #+#             */
-/*   Updated: 2023/07/11 18:14:36 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/11 20:54:50 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,14 @@ AForm	*Intern::makeForm(std::string formName, std::string target)
 		"Robotomy Request Form",
 		"Presidential Pardon Form",
 	};
-	AForm *funcArray[3] =
+	AForm *funcArray[3] = //Array of 3 pointers to base class objects
 	{
-		new ShrubberyCreationForm(target),
-		new RobotomyRequestForm(target),
-		new PresidentialPardonForm(target),	
+		funcArray[0] = new ShrubberyCreationForm(target),
+		// assigning a new ShrubberyCreationForm object to funcArray[0]
+		// using the new operator to dynamically allocate memory for a Shrubbery object
+		// and returns a pointer to it
+		funcArray[1] = new RobotomyRequestForm(target),
+		funcArray[2] = new PresidentialPardonForm(target),	
 	};
 	try
 	{
@@ -59,8 +62,11 @@ AForm	*Intern::makeForm(std::string formName, std::string target)
 			if (formName == formNameArray[i])
 			{
 				std::cout << "Intern creates " << formName << std::endl;
-				return (funcArray[i]);
+				delete (funcArray[i]);
+				return (nullptr);
 			}
+			else
+				delete (funcArray[i]);	
 		}
 		throw FormDoesntExistException();
 	}
@@ -68,6 +74,8 @@ AForm	*Intern::makeForm(std::string formName, std::string target)
 	{
 		std::cout << BOLD_RED << "[Intern] " << formName << " " << RESET;
 		std::cerr << e.what() << '\n';
+		for (int i = 0; i < 3; i++)
+			delete funcArray[i];
 		exit(3);
 	}
 	return (nullptr);

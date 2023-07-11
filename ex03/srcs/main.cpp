@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 17:26:58 by plau              #+#    #+#             */
-/*   Updated: 2023/07/11 19:30:58 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/11 20:56:35 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,19 @@
 int main()
 {
 	int	gradeOne = 4;
-	int	gradeTwo = 1;
+	// int	gradeTwo = 1;
 	Bureaucrat BureauA("Nadjib", gradeOne);
-	Bureaucrat BureauB("Angela Merkel", gradeTwo);
+	// Bureaucrat BureauB("Angela Merkel", gradeTwo);
 	Intern internA;
 	
 	std::cout << "\n---------- Shrubbery Test ----------\n" << std::endl;
 	ShrubberyCreationForm ShrubA;
-	ShrubberyCreationForm ShrubB("Deadpool");
+	// ShrubberyCreationForm ShrubB("Deadpool");
 	
 	std::cout << ShrubA << std::endl;
-	std::cout << ShrubB << std::endl;
+	// std::cout << ShrubB << std::endl;
 	std::cout << BureauA << std::endl;
-	std::cout << BureauB << std::endl;
+	// std::cout << BureauB << std::endl;
 	internA.makeForm(ShrubA.getName(), "Queen");
 	ShrubA.performAction();
 	ShrubA.beSigned(BureauA);
@@ -64,7 +64,7 @@ int main()
 	std::cout << PresidentA << std::endl;
 	std::cout << PresidentB << std::endl;
 	std::cout << BureauA << std::endl;
-	std::cout << BureauB << std::endl;
+	// std::cout << BureauB << std::endl;
 	internA.makeForm(PresidentA.getName(), "Target1");
 	PresidentA.performAction();
 	PresidentA.beSigned(BureauA);
