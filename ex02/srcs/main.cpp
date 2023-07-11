@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 17:26:58 by plau              #+#    #+#             */
-/*   Updated: 2023/07/11 12:41:12 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/11 12:47:37 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int main()
 {
-	int	gradeOne = 151;
+	int	gradeOne = 150;
 	int	gradeTwo = 1;
 	int gradeThree = 75;
 	Bureaucrat BureauA("Nadjib", gradeOne);
