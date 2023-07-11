@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 17:26:58 by plau              #+#    #+#             */
-/*   Updated: 2023/07/11 18:21:22 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/11 19:30:58 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ int main()
 	PresidentA.beSigned(BureauA);
 	BureauA.signForm(PresidentA);
 	BureauA.executeForm(PresidentA);
-	internA.makeForm(PresidentB.getName(), "Target2");
-	PresidentB.performAction();
-	PresidentB.beSigned(BureauB);
-	BureauB.signForm(PresidentB);
-	BureauB.executeForm(PresidentB);
+	// internA.makeForm(PresidentB.getName(), "Target2");
+	// PresidentB.performAction();
+	// PresidentB.beSigned(BureauB);
+	// BureauB.signForm(PresidentB);
+	// BureauB.executeForm(PresidentB);
 }
