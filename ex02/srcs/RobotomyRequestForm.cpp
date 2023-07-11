@@ -6,13 +6,13 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 19:55:48 by plau              #+#    #+#             */
-/*   Updated: 2023/07/10 23:48:35 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/11 20:18:02 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() :AForm("Robotomy", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm() :AForm("Robotomy Request Form", 72, 45)
 {
 	this->_target = "Home";
 }
@@ -21,7 +21,8 @@ RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : AForm(src)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) 
+	: AForm(src.getName(), src.getSignGrade(), src.getExecuteGrade())
 {
 	(*this) = src;
 }

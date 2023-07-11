@@ -6,13 +6,13 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:14:51 by plau              #+#    #+#             */
-/*   Updated: 2023/07/10 23:23:38 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/11 20:18:11 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Creation Form", 145, 137)
 {
 	this->_target = "Home";
 }
@@ -21,7 +21,8 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) : AForm(src)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &src) 
+	: AForm(src.getName(), src.getSignGrade(), src.getExecuteGrade())
 {
 	(*this) = src;
 }

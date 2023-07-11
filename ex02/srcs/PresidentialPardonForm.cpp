@@ -6,13 +6,13 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 18:17:01 by plau              #+#    #+#             */
-/*   Updated: 2023/07/11 00:04:28 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/11 20:17:49 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() :AForm("Presidential Form 1", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm() :AForm("Presidential Pardon Form", 25, 5)
 {
 	this->_target = "42";
 }
@@ -22,6 +22,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src)
+	: AForm(src.getName(), src.getSignGrade(), src.getExecuteGrade())
 {
 	(*this) = src;
 }
