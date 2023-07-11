@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 18:09:30 by plau              #+#    #+#             */
-/*   Updated: 2023/07/05 17:20:50 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/11 19:46:46 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,10 @@ int main()
 		std::cin >> name;
 		std::cout << "Enter grade: ";
 		std::cin >> grade;
-		if (grade == 0)
-		{
-			std::cerr << "Invalid input" << std::endl;
-			return (3);
-		}
 		try
 		{
+			if (grade == 0)
+				throw Bureaucrat::GradeTooHighException();
 			Bureaucrat bureaucratC(name, grade);
 			std::cout << "BureaucratC: " << bureaucratC << std::endl;
 			std::cout << "Increment/decrement grade (+/- number): ";
