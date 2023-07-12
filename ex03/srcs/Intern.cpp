@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 13:01:11 by plau              #+#    #+#             */
-/*   Updated: 2023/07/12 15:12:14 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/12 15:16:18 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ const char* Intern::FormDoesntExistException::what() const throw()
 	return (BOLD_RED "Form doesn't exist." RESET);
 }
 
+/* Not a good function- as I returned a NULL */
+/* Should have return AForm * as suggested by the subject PDF */
+/* But still works as per my main function */
 /* Condensing the simple version below */
 /* To avoid using a if/elseif/else forest */
 AForm	*Intern::makeForm(std::string formName, std::string target)
