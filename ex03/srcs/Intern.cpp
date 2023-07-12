@@ -6,7 +6,7 @@
 /*   By: plau <plau@student.42.kl>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 13:01:11 by plau              #+#    #+#             */
-/*   Updated: 2023/07/11 20:54:50 by plau             ###   ########.fr       */
+/*   Updated: 2023/07/12 15:12:14 by plau             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ AForm	*Intern::makeForm(std::string formName, std::string target)
 			{
 				std::cout << "Intern creates " << formName << std::endl;
 				delete (funcArray[i]);
-				return (nullptr);
+				return (NULL);
 			}
 			else
 				delete (funcArray[i]);	
@@ -78,7 +78,7 @@ AForm	*Intern::makeForm(std::string formName, std::string target)
 			delete funcArray[i];
 		exit(3);
 	}
-	return (nullptr);
+	return (NULL);
 }
 
 /* Simple version */
